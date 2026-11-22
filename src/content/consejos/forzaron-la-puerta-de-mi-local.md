@@ -1,6 +1,6 @@
 ---
 titulo: "Forzaron la puerta de mi local, ¿qué hago?"
-descripcion: "Los pasos para seguir si forzaron o rompieron la puerta de tu negocio, cómo asegurarlo esa misma noche y cómo evitar que vuelva a pasar."
+descripcion: "Los pasos para seguir si forzaron o rompieron la puerta de tu negocio, cómo asegurarlo de inmediato y cómo evitar que vuelva a pasar."
 fecha: 2026-11-18
 categoria: Seguridad
 imagen: ../../assets/cerraduras/tipos/puerta-vidrio-local.jpg
@@ -16,7 +16,7 @@ Si ves señales de que alguien puede seguir adentro, espera a la Policía. No to
 
 La puerta, la cerradura, el vidrio, lo que falta. Si tienes cámaras, guarda el video antes de que se sobrescriba.
 
-## 3. Asegura el acceso esa misma noche
+## 3. Asegura el acceso de inmediato
 
 Un local con la puerta forzada no puede esperar al lunes. Un cerrajero puede [cambiar la cerradura y los herrajes dañados](/servicios/vidrio-roto-o-puerta-forzada) y, si el vidrio se rompió, dejar el acceso asegurado mientras se fabrica el vidrio templado nuevo, que se hace a la medida.
 

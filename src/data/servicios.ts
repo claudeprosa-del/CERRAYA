@@ -116,7 +116,7 @@ export const servicios: Servicio[] = [
     slug: 'apertura-puertas-de-vidrio',
     titulo: 'Apertura de puertas de vidrio',
     texto: 'Abrimos puertas de vidrio de locales, oficinas y conjuntos sin romper el vidrio ni dañar la cerradura, a cualquier hora.',
-    incluye: ['Locales y vitrinas', 'Porterías de conjuntos', 'Cambio de guarda en el momento'],
+    incluye: ['Locales y vitrinas', 'Porterías de conjuntos', 'Cambio de guarda si hace falta'],
     icono: 'puerta',
     urgencia: true,
     grupo: 'Puertas de vidrio',

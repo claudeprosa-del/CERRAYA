@@ -26,7 +26,7 @@ export const detalleServicios: Record<string, DetalleServicio> = {
   },
   'reparacion-puertas-de-vidrio': {
     tituloSeo: 'Reparación de puertas de vidrio en Bogotá',
-    intro: 'Somos especialistas en puertas de vidrio templado: las que golpean al cerrar, arrastran en el piso, se descolgaron, quedaron desniveladas o ya no aseguran. Revisamos bisagras hidráulicas, cerraduras, zócalos y herrajes, y la dejamos funcionando en la misma visita siempre que el repuesto lo permita. Atendemos locales, oficinas, edificios, conjuntos y casas en toda Bogotá, también de noche y en festivos.',
+    intro: 'Somos especialistas en puertas de vidrio templado: las que golpean al cerrar, arrastran en el piso, se descolgaron, quedaron desniveladas o ya no aseguran. Revisamos bisagras hidráulicas, cerraduras, zócalos y herrajes, y la dejamos funcionando. Atendemos locales, oficinas, edificios, conjuntos y casas en toda Bogotá, también de noche y en festivos.',
     faq: [
       { p: '¿Por qué mi puerta de vidrio golpea o se cierra muy duro?', r: 'Casi siempre es la bisagra hidráulica de piso o el brazo cierrapuertas desgraduado o sin aceite. Se gradúa o se cambia y la puerta vuelve a cerrar suave.' },
       { p: '¿Arreglan una puerta de vidrio descolgada?', r: 'Sí. Revisamos el pivote superior, el zócalo y la bisagra de piso, nivelamos la hoja y cambiamos la pieza que falló.' },
@@ -52,7 +52,7 @@ export const detalleServicios: Record<string, DetalleServicio> = {
   },
   'apertura-puertas-de-vidrio': {
     tituloSeo: 'Apertura de puertas de vidrio en Bogotá 24/7',
-    intro: 'Si la cerradura de la puerta de vidrio de tu local, oficina o portería no abre, o perdiste la llave, hacemos la apertura sin romper el vidrio ni dañar la cerradura. Si hace falta, cambiamos la guarda en el momento para que vuelvas a abrir y cerrar con tranquilidad.',
+    intro: 'Si la cerradura de la puerta de vidrio de tu local, oficina o portería no abre, o perdiste la llave, hacemos la apertura sin romper el vidrio ni dañar la cerradura. Si hace falta, cambiamos la guarda para que vuelvas a abrir y cerrar con tranquilidad.',
     faq: [
       { p: '¿Rompen el vidrio para abrir?', r: 'No. Trabajamos sobre la cerradura. Romper un vidrio templado es lo último que se haría y nunca sin tu autorización.' },
       { p: '¿Qué piden para abrir un local?', r: 'Un documento que demuestre que eres el dueño, el arrendatario o el encargado del local.' },
@@ -62,7 +62,7 @@ export const detalleServicios: Record<string, DetalleServicio> = {
     tituloSeo: 'Puerta de vidrio forzada o rota en Bogotá: atención urgente',
     intro: 'Si forzaron o rompieron la puerta de vidrio de tu negocio, salimos de inmediato a asegurar el acceso para que no quede abierto: cambiamos cerradura y herrajes dañados y, si el vidrio se rompió, tomamos medidas y gestionamos el vidrio templado nuevo a la medida.',
     faq: [
-      { p: '¿Qué hago primero si forzaron mi local?', r: 'Llama a la Policía (123) y no toques nada hasta que hagan el registro. Después llámanos para asegurar la puerta esa misma noche.' },
+      { p: '¿Qué hago primero si forzaron mi local?', r: 'Llama a la Policía (123) y no toques nada hasta que hagan el registro. Después llámanos para asegurar la puerta.' },
       { p: '¿Cuánto se demora un vidrio templado nuevo?', r: 'El vidrio templado se fabrica a la medida y toma unos días. Mientras tanto aseguramos el acceso para que el local no quede expuesto.' },
     ],
   },
@@ -111,7 +111,7 @@ export const detalleServicios: Record<string, DetalleServicio> = {
     intro: 'Suministramos e instalamos puertas de vidrio templado a la medida para locales, oficinas, porterías y casas: batientes con bisagra de piso o corredizas, en vidrio de 8 o 10 mm, con herrajes en acero inoxidable y la cerradura adecuada desde el principio.',
     faq: [
       { p: '¿Qué espesor de vidrio se usa?', r: 'Para puertas, 10 mm es lo más común; 8 mm sirve en puertas interiores livianas.' },
-      { p: '¿Cuánto se demora?', r: 'Después de la medida, el vidrio templado se fabrica en pocos días y la instalación se hace en una visita.' },
+      { p: '¿Cuánto se demora?', r: 'Depende de la medida y del tipo de puerta, porque el vidrio templado se fabrica a la medida. Después de tomar medidas te damos la fecha de instalación.' },
     ],
   },
   'divisiones-de-bano': {
