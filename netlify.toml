@@ -11,6 +11,11 @@
   status = 301
 
 [[redirects]]
+  from = "/trabajos"
+  to = "/puertas-de-vidrio"
+  status = 301
+
+[[redirects]]
   from = "/cotizacion"
   to = "/cotizar"
   status = 301

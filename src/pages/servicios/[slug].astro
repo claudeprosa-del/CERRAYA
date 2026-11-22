@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import Icon from '../../components/Icon.astro';
 import Faq from '../../components/Faq.astro';
@@ -9,6 +10,7 @@ import { servicios, serviciosConPagina, urlServicio, type Servicio } from '../..
 import { detalleServicios } from '../../data/servicios-detalle';
 import { localidadesBogota } from '../../data/localidades';
 import { negocioLocal, migas } from '../../data/schema';
+import { fotoServicio } from '../../data/fotos';
 
 export function getStaticPaths() {
   return serviciosConPagina.map((servicio) => ({ params: { slug: servicio.slug }, props: { servicio } }));
@@ -20,6 +22,8 @@ const relacionados = servicios.filter((s) => s.slug !== servicio.slug && s.grupo
 const mensaje = `Hola Cerraya, necesito: ${servicio.titulo.toLowerCase()}`;
 const url = `${empresa.sitio}/servicios/${servicio.slug}`;
 const nombre = servicio.titulo.toLowerCase();
+const foto = fotoServicio(servicio.slug);
+const esVidrio = servicio.grupo === 'Puertas de vidrio';
 
 // Variantes de búsqueda ("urgente", "madrugada", "cuánto cuesta", "cerca de mí") que cada servicio responde.
 const yaHablaDePrecio = d.faq.some((f) => /cuesta|precio|cobra/i.test(f.p));
@@ -50,7 +54,7 @@ const schema = [
   },
   migas([
     { nombre: 'Inicio', url: empresa.sitio },
-    { nombre: 'Servicios', url: `${empresa.sitio}/servicios` },
+    esVidrio ? { nombre: 'Puertas de vidrio', url: `${empresa.sitio}/puertas-de-vidrio` } : { nombre: 'Servicios', url: `${empresa.sitio}/servicios` },
     { nombre: servicio.titulo, url },
   ]),
 ];
@@ -58,8 +62,9 @@ const schema = [
 <Base title={`${tituloPagina} | Cerraya`} description={descripcion} schema={schema}>
   <section class="hero-serv con-fondo">
     <FondoVivo />
-    <div class="container">
-      <nav class="migas" aria-label="Ruta"><a href="/">Inicio</a><span>/</span><a href="/servicios">Servicios</a><span>/</span><span aria-current="page">{servicio.titulo}</span></nav>
+    <div class:list={['container', { 'hero-grid': foto }]}>
+      <div>
+      <nav class="migas" aria-label="Ruta"><a href="/">Inicio</a><span>/</span><a href={esVidrio ? '/puertas-de-vidrio' : '/servicios'}>{esVidrio ? 'Puertas de vidrio' : 'Servicios'}</a><span>/</span><span aria-current="page">{servicio.titulo}</span></nav>
       {servicio.urgencia && <span class="tag-urg">Urgencias 24/7</span>}
       <h1>{d.tituloSeo}</h1>
       <p class="lead">{d.intro}</p>
@@ -72,6 +77,13 @@ const schema = [
         <li><Icon name="precio" />Sin sorpresas en el precio</li>
         <li><Icon name="mapa" />Toda Bogotá</li>
       </ul>
+      </div>
+      {foto && (
+        <figure class="hero-foto">
+          <Image src={foto} alt={`${servicio.titulo} en Bogotá`} widths={[480, 800]} sizes="(max-width: 960px) 100vw, 38vw" loading="eager" />
+          <figcaption>Imagen de referencia</figcaption>
+        </figure>
+      )}
     </div>
   </section>
 
@@ -111,7 +123,7 @@ const schema = [
         <span class="eyebrow">Cobertura</span>
         <h2>{servicio.titulo} en todas las localidades de Bogotá</h2>
       </div>
-      <ul class="chips enlaces">{localidadesBogota.map((l) => <li><a href={`/cerrajero-en/${l.slug}`}>{servicio.titulo} en {l.nombre}</a></li>)}</ul>
+      <ul class="chips enlaces">{localidadesBogota.map((l) => <li><a href={esVidrio ? `/puertas-de-vidrio/${l.slug}` : `/cerrajero-en/${l.slug}`}>{servicio.titulo} en {l.nombre}</a></li>)}</ul>
       {relacionados.length > 0 && (
         <>
           <h2 class="rel-h">Otros servicios</h2>
@@ -135,6 +147,11 @@ const schema = [
 <style>
   .hero-serv { background: linear-gradient(180deg, var(--green-800), var(--green-900)); color: var(--on-green); padding: 2rem 0 clamp(2.5rem, 6vw, 4rem); }
   .hero-serv h1 { color: var(--cream); max-width: 22ch; }
+  .hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+  .hero-foto { margin: 0; position: relative; }
+  .hero-foto :global(img) { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow); }
+  .hero-foto figcaption { position: absolute; left: .75rem; bottom: .75rem; padding: .2rem .6rem; border-radius: 999px; background: rgba(6, 42, 32, .7); color: var(--cream); font-size: .72rem; }
+  @media (max-width: 960px) { .hero-grid { grid-template-columns: 1fr; } .hero-foto :global(img) { aspect-ratio: 16 / 9; } }
   .hero-serv .lead { color: var(--on-green-muted); max-width: 62ch; }
   .hero-serv .actions { margin-top: 1.5rem; }
   .migas { display: flex; flex-wrap: wrap; gap: .5rem; font-size: .88rem; color: var(--on-green-muted); margin-bottom: 1.25rem; }

@@ -5,7 +5,7 @@ import Faq from '../../components/Faq.astro';
 import FondoVivo from '../../components/FondoVivo.astro';
 import CtaFinal from '../../components/CtaFinal.astro';
 import { empresa, tel, whatsapp } from '../../data/empresa';
-import { serviciosPopulares, servicios, urlServicio } from '../../data/servicios';
+import { serviciosPopulares, servicios, serviciosVidrio, urlServicio } from '../../data/servicios';
 import { localidadesBogota, type Localidad } from '../../data/localidades';
 import { negocioLocal, migas } from '../../data/schema';
 
@@ -101,6 +101,20 @@ const schema = [
     </div>
   </section>
 
+  <section class="section section-green vid-loc">
+    <div class="container vid-grid">
+      <div>
+        <span class="eyebrow">Puertas de vidrio en {l.nombre}</span>
+        <h2>¿La puerta de vidrio de tu local o conjunto no cierra?</h2>
+        <p class="lead">Somos especialistas en puertas de vidrio templado: bisagras hidráulicas, cerraduras para vidrio, herrajes, corredizas y electroimanes en {b(0)}, {b(1)} y todo {l.nombre}.</p>
+        <a class="btn btn-accent btn-lg" href={`/puertas-de-vidrio/${l.slug}`}>Puertas de vidrio en {l.nombre}<Icon name="flecha" /></a>
+      </div>
+      <ul class="vid-lista">
+        {serviciosVidrio.slice(0, 6).map((s) => <li><a href={urlServicio(s.slug)}>{s.titulo}</a></li>)}
+      </ul>
+    </div>
+  </section>
+
   <section class="section section-cream">
     <div class="container grid grid-2 barrios-sec">
       <div>
@@ -145,5 +159,11 @@ const schema = [
   .barrios-sec { align-items: start; gap: 2.5rem; }
   .nota { margin-top: 1rem; color: var(--muted); font-size: .92rem; }
   .vec-h { font-size: 1.3rem; }
+  .vid-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 2.5rem; align-items: center; }
+  .vid-loc h2 { color: var(--cream); }
+  .vid-lista { list-style: none; padding: 0; margin: 0; display: grid; gap: .5rem; }
+  .vid-lista a { display: block; padding: .7rem 1rem; border-radius: var(--radius-sm); border: 1px solid rgba(247, 245, 232, .2); color: var(--cream); text-decoration: none; font-weight: 600; }
+  .vid-lista a:hover { border-color: var(--accent); }
+  @media (max-width: 860px) { .vid-grid { grid-template-columns: 1fr; } }
   .enlaces a { text-decoration: none; color: var(--green-800); font-weight: 600; }
 </style>
