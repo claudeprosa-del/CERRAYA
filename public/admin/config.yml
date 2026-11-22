@@ -6,9 +6,9 @@ backend:
   branch: main
   base_url: https://api.netlify.com
   commit_messages:
-    create: 'Trabajo nuevo: {{slug}}'
-    update: 'Actualiza trabajo: {{slug}}'
-    delete: 'Elimina trabajo: {{slug}}'
+    create: 'Consejo nuevo: {{slug}}'
+    update: 'Actualiza consejo: {{slug}}'
+    delete: 'Elimina consejo: {{slug}}'
     uploadMedia: 'Sube foto: {{path}}'
     deleteMedia: 'Elimina foto: {{path}}'
 
@@ -18,8 +18,8 @@ display_url: https://cerraya.com
 logo_url: https://cerraya.com/img/logo-cerraya.png
 
 # Las fotos se guardan en src/assets para que Astro las optimice (webp, varios tamaños).
-media_folder: src/assets/trabajos
-public_folder: ../../assets/trabajos
+media_folder: src/assets/consejos
+public_folder: ../../assets/consejos
 
 collections:
   - name: consejos
@@ -40,29 +40,7 @@ collections:
       - label: Tema
         name: categoria
         widget: select
-        options: ['Guías', 'Seguridad', 'Urgencias', 'Llaves de carro', 'Preguntas de clientes']
+        options: ['Guías', 'Puertas de vidrio', 'Seguridad', 'Urgencias', 'Llaves de carro', 'Preguntas de clientes']
       - { label: Imagen (opcional), name: imagen, widget: image, required: false, choose_url: false }
       - { label: Destacar, name: destacado, widget: boolean, default: false, required: false }
       - { label: Texto, name: body, widget: markdown }
-
-  - name: trabajos
-    label: Trabajos
-    label_singular: Trabajo
-    description: Fotos de los trabajos que aparecen en cerraya.com/trabajos
-    folder: src/content/trabajos
-    create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    summary: '{{titulo}} · {{servicio}}'
-    sortable_fields: ['fecha', 'titulo']
-    fields:
-      - { label: Título, name: titulo, widget: string, hint: 'Ej: Cerradura digital Yale en apartamento de Cedritos' }
-      - { label: Fecha, name: fecha, widget: datetime, date_format: 'DD/MM/YYYY', time_format: false, format: 'YYYY-MM-DD' }
-      - label: Servicio
-        name: servicio
-        widget: select
-        options: ['Urgencia', 'Cerradura digital', 'Cambio de guardas', 'Cerrojo de seguridad', 'Caja fuerte', 'Vehículo', 'Conjunto o empresa', 'Otro']
-      - { label: Localidad o barrio, name: localidad, widget: string, required: false }
-      - { label: Foto principal (después), name: foto, widget: image, choose_url: false }
-      - { label: Foto de antes (opcional), name: antes, widget: image, required: false, choose_url: false }
-      - { label: Destacar en el inicio, name: destacado, widget: boolean, default: false, required: false }
-      - { label: Descripción, name: body, widget: markdown, required: false, buttons: ['bold', 'italic', 'bulleted-list'], editor_components: [] }

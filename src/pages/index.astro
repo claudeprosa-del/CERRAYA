@@ -9,7 +9,9 @@ import Resenas from '../components/Resenas.astro';
 import Faq from '../components/Faq.astro';
 import CtaFinal from '../components/CtaFinal.astro';
 import { empresa, tel, whatsapp } from '../data/empresa';
-import { serviciosPopulares, servicios, urlServicio } from '../data/servicios';
+import { serviciosPopulares, servicios, serviciosVidrio, urlServicio } from '../data/servicios';
+import { sintomasVidrio } from '../data/puertas-vidrio';
+import ResenasBarra from '../components/ResenasBarra.astro';
 import { productos } from '../data/cerraduras';
 import { marcasCarro } from '../data/llaves';
 import { promocionesActivas } from '../data/promociones';
@@ -17,6 +19,7 @@ import { fotoTipo } from '../data/fotos';
 import { negocioLocal, sitioWeb } from '../data/schema';
 
 const fotoLlave = fotoTipo('llave-carro');
+const fotoVidrio = fotoTipo('puerta-vidrio');
 
 const destacados = [
   'yale-kit-yale-connect-con-cerradura-digital-ymf30',
@@ -26,10 +29,6 @@ const destacados = [
 ]
   .map((id) => productos.find((p) => p.id === id))
   .filter((p) => p !== undefined);
-
-const trabajos = (await getCollection('trabajos'))
-  .sort((a, b) => Number(b.data.destacado) - Number(a.data.destacado) || b.data.fecha.getTime() - a.data.fecha.getTime())
-  .slice(0, 3);
 
 const consejos = (await getCollection('consejos'))
   .sort((a, b) => Number(b.data.destacado) - Number(a.data.destacado) || b.data.fecha.getTime() - a.data.fecha.getTime())
@@ -46,22 +45,23 @@ const preguntas = [
 ];
 ---
 <Base
-  title="Cerraya | Cerrajería de confianza en Bogotá 24/7"
-  description={`Cerrajeros con más de ${empresa.experiencia} años de experiencia en Bogotá. Aperturas domiciliarias sin daños, cambio de guardas, llaves de carro y venta e instalación de cerraduras. Urgencias 24/7.`}
+  title="Cerraya | Cerrajero en Bogotá 24/7 y puertas de vidrio"
+  description={`Cerrajero en Bogotá 24/7: aperturas sin daños, cambio de guardas, puertas de vidrio, llaves de carro y cerraduras. ${empresa.resenas.calificacion} en Google con ${empresa.resenas.total} reseñas. Valor estimado antes de salir.`}
   schema={schema}
+  barraResenas={false}
 >
   <section class="hero con-fondo">
     <FondoVivo />
     <div class="container hero-grid">
       <div class="hero-copy">
         <a class="rating-pill" href={empresa.enlacePerfilGoogle} target="_blank" rel="noopener">
-          <span class="stars" aria-hidden="true">★★★★★</span><strong>{empresa.resenas.calificacion}</strong> en Google
+          <span class="stars" aria-hidden="true">★★★★★</span><strong>{empresa.resenas.calificacion}</strong> en Google · {empresa.resenas.total} reseñas
         </a>
-        <h1>Cerrajería de confianza en <span>Bogotá</span></h1>
-        <p class="lead">Aperturas domiciliarias sin daños, cambio de guardas, llaves de carro y venta e instalación de cerraduras. Cerrajeros con más de {empresa.experiencia} años de experiencia.</p>
+        <h1>Cerrajero en <span>Bogotá</span> que llega rápido y cobra lo que dijo</h1>
+        <p class="lead">Aperturas sin daños, cambio de guardas, puertas de vidrio, llaves de carro y cerraduras. Te damos el valor antes de salir y nada se cobra sin tu aprobación. Más de {empresa.experiencia} años en el oficio.</p>
         <ul class="hero-points">
           <li><Icon name="reloj" />Urgencias 24/7</li>
-          <li><Icon name="precio" />Sin sorpresas en el precio</li>
+          <li><Icon name="precio" />Precio acordado antes de salir</li>
           <li><Icon name="garantia" />Garantía en cada trabajo</li>
         </ul>
       </div>
@@ -98,10 +98,12 @@ const preguntas = [
     <div class="container trust-grid">
       <div><strong>+{empresa.experiencia} años</strong><span>de experiencia</span></div>
       <div><strong>24/7</strong><span>urgencias todos los días</span></div>
-      <div><strong>Sin sorpresas</strong><span>nada se cobra sin tu aprobación</span></div>
+      <div><strong>{empresa.resenas.calificacion} ★</strong><span>{empresa.resenas.total} reseñas en Google</span></div>
       <div><strong>Garantía</strong><span>en cada trabajo</span></div>
     </div>
   </section>
+
+  <ResenasBarra />
 
   <section class="section">
     <div class="container">
@@ -145,6 +147,27 @@ const preguntas = [
       </div>
     </section>
   )}
+
+  <section class="section section-green vidrio-home">
+    <div class="container vidrio-grid">
+      <div>
+        <span class="eyebrow">Especialistas en puertas de vidrio</span>
+        <h2>¿La puerta de vidrio golpea, arrastra o no cierra?</h2>
+        <p class="lead">Bisagras hidráulicas de piso, cerraduras para vidrio, herrajes, corredizas y electroimanes. Locales, oficinas y conjuntos en toda Bogotá, también de noche.</p>
+        <ul class="vidrio-sintomas">
+          {sintomasVidrio.slice(0, 4).map((x) => <li><a href={x.href}>{x.sintoma}</a></li>)}
+        </ul>
+        <div class="actions">
+          <a class="btn btn-accent btn-lg" href="/puertas-de-vidrio">Ver servicios de vidrio<Icon name="flecha" /></a>
+          <a class="btn btn-ghost btn-lg" href={whatsapp('Hola Cerraya, necesito ayuda con una puerta de vidrio')} target="_blank" rel="noopener"><Icon name="whatsapp" />Enviar foto</a>
+        </div>
+      </div>
+      <div class="vidrio-lado">
+        {fotoVidrio && <Image class="vidrio-foto" src={fotoVidrio} alt="Puerta de vidrio templado con herrajes en acero inoxidable" widths={[480, 800]} sizes="(max-width: 960px) 100vw, 40vw" />}
+        <p class="vidrio-n">{serviciosVidrio.length} servicios para puertas de vidrio</p>
+      </div>
+    </div>
+  </section>
 
   <section class="section">
     <div class="container">
@@ -217,28 +240,6 @@ const preguntas = [
       <a class="btn btn-green btn-lg" href="/mantenimiento">Ver planes<Icon name="flecha" /></a>
     </div>
   </section>
-
-  {trabajos.length > 0 && (
-    <section class="section">
-      <div class="container">
-        <div class="section-head split">
-          <div>
-            <span class="eyebrow">Trabajos recientes</span>
-            <h2>Así dejamos cada puerta</h2>
-          </div>
-          <a href="/trabajos" class="btn btn-outline">Ver todos los trabajos<Icon name="flecha" /></a>
-        </div>
-        <div class="grid grid-3">
-          {trabajos.map((t) => (
-            <a class="trabajo" href="/trabajos">
-              <Image src={t.data.foto} alt={t.data.titulo} widths={[400, 800]} sizes="(max-width: 680px) 100vw, 33vw" />
-              <span class="trabajo-texto"><strong>{t.data.titulo}</strong>{t.data.localidad && <span>{t.data.localidad}</span>}</span>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
 
   {consejos.length > 0 && (
     <section class="section">
@@ -358,13 +359,17 @@ const preguntas = [
   .consejo-texto { padding: 1rem 1.2rem 1.2rem; display: grid; gap: .3rem; }
   .consejo-cat { font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--green-600); }
   .consejo strong { font-family: var(--display); line-height: 1.3; color: var(--ink); }
-  .trabajo { display: block; border-radius: var(--radius); overflow: hidden; background: var(--white); border: 1px solid var(--line); text-decoration: none; }
-  .trabajo :global(img) { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
-  .trabajo-texto { padding: 1rem 1.2rem; display: grid; gap: .15rem; }
-  .trabajo-texto span { color: var(--muted); font-size: .9rem; }
+  .vidrio-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 2.5rem; align-items: center; }
+  .vidrio-home h2 { color: var(--cream); }
+  .vidrio-sintomas { list-style: none; padding: 0; margin: 1.25rem 0 1.5rem; display: flex; flex-wrap: wrap; gap: .5rem; }
+  .vidrio-sintomas a { display: inline-block; padding: .45rem .9rem; border-radius: 999px; border: 1px solid rgba(247, 245, 232, .3); color: var(--cream); text-decoration: none; font-size: .9rem; font-weight: 600; }
+  .vidrio-sintomas a:hover { border-color: var(--accent); }
+  .vidrio-lado { display: grid; gap: .75rem; }
+  .vidrio-lado :global(.vidrio-foto) { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow); }
+  .vidrio-n { margin: 0; color: var(--on-green-muted); font-size: .9rem; }
 
   @media (max-width: 1080px) { .productos { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 960px) { .hero-grid, .llaves { grid-template-columns: 1fr; } }
+  @media (max-width: 960px) { .hero-grid, .llaves, .vidrio-grid { grid-template-columns: 1fr; } }
   @media (max-width: 680px) {
     .trust-grid { grid-template-columns: repeat(2, 1fr); }
     .trust-grid div:nth-child(3) { border-left: 0; }

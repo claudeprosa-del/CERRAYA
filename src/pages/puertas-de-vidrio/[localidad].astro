@@ -1,0 +1,164 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import Faq from '../../components/Faq.astro';
+import FondoVivo from '../../components/FondoVivo.astro';
+import CtaFinal from '../../components/CtaFinal.astro';
+import { empresa, tel, whatsapp } from '../../data/empresa';
+import { serviciosVidrio, urlServicio } from '../../data/servicios';
+import { localidadesBogota, type Localidad } from '../../data/localidades';
+import { sintomasVidrio } from '../../data/puertas-vidrio';
+import { negocioLocal, migas } from '../../data/schema';
+
+export function getStaticPaths() {
+  return localidadesBogota.map((localidad, i) => ({ params: { localidad: localidad.slug }, props: { localidad, i } }));
+}
+
+const { localidad: l, i } = Astro.props as { localidad: Localidad; i: number };
+const url = `${empresa.sitio}/puertas-de-vidrio/${l.slug}`;
+const b = (n: number) => l.barrios[n % l.barrios.length];
+const barrios = l.barrios.slice(0, -1).join(', ') + ' y ' + l.barrios[l.barrios.length - 1];
+const vecinas = [-2, -1, 1, 2].map((d) => localidadesBogota[(i + d + localidadesBogota.length) % localidadesBogota.length]);
+const mensaje = `Hola Cerraya, necesito ayuda con una puerta de vidrio en ${l.nombre}`;
+
+// Rota el orden de los servicios para que cada localidad no repita la misma página.
+const servicios = [...serviciosVidrio.slice(i % serviciosVidrio.length), ...serviciosVidrio.slice(0, i % serviciosVidrio.length)];
+
+const casos = [
+  { titulo: `Locales en ${b(0)} y ${b(1)}`, href: '/servicios/reparacion-puertas-de-vidrio', texto: `Si la puerta de vidrio de tu local en ${b(0)} no cierra al final del día, vamos de inmediato para que no quede abierto.` },
+  { titulo: `Conjuntos y edificios de ${l.nombre}`, href: '/servicios/mantenimiento-puertas-de-vidrio', texto: `Porterías y lobbies con bisagras de piso que azotan o se quedan abiertas en ${b(2)}, ${b(3)} y el resto de ${l.nombre}. Planes de mantenimiento para la administración.` },
+  { titulo: 'Oficinas y consultorios', href: '/servicios/electroimanes-y-control-de-acceso', texto: `Cerraduras para vidrio, electroimanes y control de acceso con huella o tarjeta para oficinas en ${b(4)}.` },
+  { titulo: 'Forzaron o rompieron la puerta', href: '/servicios/vidrio-roto-o-puerta-forzada', texto: `Aseguramos el acceso esa misma noche en ${b(5)} o cualquier barrio de ${l.nombre}, y gestionamos el vidrio templado nuevo.` },
+];
+
+const preguntas = [
+  { p: `¿Arreglan puertas de vidrio en ${l.nombre}?`, r: `Sí. Atendemos todos los barrios de ${l.nombre}, entre ellos ${barrios}.` },
+  { p: `¿Cuánto se demoran en llegar a ${b(0)}?`, r: `Salimos de inmediato. Al escribirnos te decimos el tiempo exacto de llegada a tu barrio en ${l.nombre}.` },
+  { p: '¿Cuánto cuesta arreglar una puerta de vidrio?', r: 'Depende de la pieza que falló. Mándanos una foto o un video por WhatsApp y te damos un valor estimado antes de ir.' },
+  { p: '¿Atienden de noche, domingos y festivos?', r: `Sí, 24 horas y todos los días del año en ${l.nombre}.` },
+];
+
+const schema = [
+  negocioLocal(),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: `Puertas de vidrio en ${l.nombre}, Bogotá`,
+    serviceType: 'Reparación y mantenimiento de puertas de vidrio',
+    provider: { '@id': `${empresa.sitio}/#negocio` },
+    areaServed: { '@type': 'AdministrativeArea', name: `${l.nombre}, Bogotá` },
+    url,
+  },
+  migas([
+    { nombre: 'Inicio', url: empresa.sitio },
+    { nombre: 'Puertas de vidrio', url: `${empresa.sitio}/puertas-de-vidrio` },
+    { nombre: l.nombre, url },
+  ]),
+];
+---
+<Base
+  title={`Puertas de vidrio en ${l.nombre}, Bogotá: reparación y bisagras 24/7 | Cerraya`}
+  description={`Reparación de puertas de vidrio en ${l.nombre}: bisagras hidráulicas, cerraduras para vidrio, herrajes y corredizas. Locales, oficinas y conjuntos en ${b(0)}, ${b(1)}, ${b(2)} y todo ${l.nombre}. 24/7.`}
+  schema={schema}
+>
+  <section class="hero-loc con-fondo">
+    <FondoVivo />
+    <div class="container">
+      <nav class="migas" aria-label="Ruta"><a href="/">Inicio</a><span>/</span><a href="/puertas-de-vidrio">Puertas de vidrio</a><span>/</span><span aria-current="page">{l.nombre}</span></nav>
+      <span class="live"><i></i>Técnicos disponibles en {l.nombre}</span>
+      <h1>Puertas de vidrio en {l.nombre}, <span>24/7</span></h1>
+      <p class="lead">Reparamos y ajustamos puertas de vidrio templado en {l.nombre}: bisagras hidráulicas, cerraduras, herrajes, corredizas y control de acceso. Locales, oficinas, conjuntos y casas en {b(0)}, {b(1)}, {b(2)} y toda la localidad.</p>
+      <div class="actions">
+        <a href={whatsapp(mensaje)} target="_blank" rel="noopener" class="btn btn-wa btn-lg"><Icon name="whatsapp" />Enviar foto por WhatsApp</a>
+        <a href={tel} class="btn btn-accent btn-lg"><Icon name="telefono" />Llamar · {empresa.telefonoVisible}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Dónde trabajamos en {l.nombre}</span>
+        <h2>Puertas de vidrio de locales, conjuntos y oficinas</h2>
+      </div>
+      <div class="grid grid-2">
+        {casos.map((c) => (
+          <a class="card feature serv" href={c.href}>
+            <h3>{c.titulo}</h3>
+            <p>{c.texto}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-cream">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Servicios en {l.nombre}</span>
+        <h2>Lo que hacemos en puertas de vidrio</h2>
+      </div>
+      <div class="grid grid-3">
+        {servicios.map((s) => (
+          <a class="card feature serv" href={urlServicio(s.slug)}>
+            <span class="icon-badge"><Icon name={s.icono} /></span>
+            <h3>{s.titulo}</h3>
+            <p>{s.texto}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2 dos">
+      <div>
+        <span class="eyebrow">Síntomas</span>
+        <h2>¿Qué tiene tu puerta?</h2>
+        <ul class="sintomas">
+          {sintomasVidrio.map((s) => <li><a href={s.href}><strong>{s.sintoma}</strong></a><span>{s.causa}</span></li>)}
+        </ul>
+      </div>
+      <div>
+        <span class="eyebrow">Preguntas frecuentes</span>
+        <h2>Antes de escribirnos</h2>
+        <Faq preguntas={preguntas} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="container">
+      <h2 class="vec-h">Barrios de {l.nombre}</h2>
+      <ul class="chips">{l.barrios.map((x) => <li>{x}</li>)}</ul>
+      <h2 class="vec-h">También en localidades cercanas</h2>
+      <ul class="chips enlaces">
+        {vecinas.map((v) => <li><a href={`/puertas-de-vidrio/${v.slug}`}>Puertas de vidrio en {v.nombre}</a></li>)}
+        <li><a href={`/cerrajero-en/${l.slug}`}>Cerrajero en {l.nombre}</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <CtaFinal titulo={`¿Tu puerta de vidrio en ${l.nombre} no cierra?`} texto="Mándanos una foto o un video por WhatsApp y en minutos te decimos qué tiene y cuánto cuesta." />
+</Base>
+
+<style>
+  .hero-loc { background: linear-gradient(180deg, var(--green-800), var(--green-900)); color: var(--on-green); padding: 2rem 0 clamp(2.5rem, 6vw, 4rem); }
+  .hero-loc h1 { color: var(--cream); }
+  .hero-loc h1 span { color: var(--accent); white-space: nowrap; }
+  .hero-loc .lead { color: var(--on-green-muted); max-width: 62ch; }
+  .hero-loc .actions { margin-top: 1.5rem; }
+  .migas { display: flex; flex-wrap: wrap; gap: .5rem; font-size: .88rem; color: var(--on-green-muted); margin-bottom: 1.25rem; }
+  .migas a { color: var(--cream); }
+  .live { display: inline-flex; align-items: center; gap: .55rem; margin-bottom: 1rem; font-size: .9rem; font-weight: 600; color: var(--cream); }
+  .live i { width: 10px; height: 10px; border-radius: 50%; background: #3ddc84; }
+  .serv { text-decoration: none; transition: border-color .18s, transform .18s; }
+  .serv:hover { border-color: var(--green-600); transform: translateY(-2px); }
+  .dos { align-items: start; gap: 2.5rem; }
+  .sintomas { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: .85rem; }
+  .sintomas li { display: grid; gap: .1rem; padding-left: 1rem; border-left: 3px solid var(--accent); }
+  .sintomas a { color: var(--green-800); text-decoration: none; }
+  .sintomas span { color: var(--muted); font-size: .93rem; }
+  .vec-h { font-size: 1.3rem; margin-top: 1.5rem; }
+  .enlaces a { text-decoration: none; color: var(--green-800); font-weight: 600; }
+</style>

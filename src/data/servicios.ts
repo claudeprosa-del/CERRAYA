@@ -9,7 +9,7 @@ export type Servicio = {
   incluye: string[];
   icono: NombreIcono;
   urgencia: boolean; // se atiende como urgencia 24/7
-  grupo: 'Hogar' | 'Vehículos' | 'Seguridad' | 'Conjuntos y empresas';
+  grupo: 'Hogar' | 'Puertas de vidrio' | 'Vehículos' | 'Seguridad' | 'Conjuntos y empresas';
 };
 
 export const servicios: Servicio[] = [
@@ -30,6 +30,15 @@ export const servicios: Servicio[] = [
     icono: 'llave',
     urgencia: true,
     grupo: 'Hogar',
+  },
+  {
+    slug: 'reparacion-puertas-de-vidrio',
+    titulo: 'Puertas de vidrio',
+    texto: 'Reparamos, ajustamos y aseguramos puertas de vidrio templado que golpean, arrastran, se descolgaron o ya no cierran.',
+    incluye: ['Locales, oficinas y conjuntos', 'Bisagras hidráulicas y cerraduras', 'Ajuste y nivelación en sitio'],
+    icono: 'vidrio',
+    urgencia: true,
+    grupo: 'Puertas de vidrio',
   },
   {
     slug: 'duplicado-de-llaves',
@@ -84,6 +93,106 @@ export const servicios: Servicio[] = [
     icono: 'herramienta',
     urgencia: true,
     grupo: 'Hogar',
+  },
+  {
+    slug: 'bisagras-hidraulicas',
+    titulo: 'Bisagras hidráulicas y frenos de piso',
+    texto: 'Cambiamos, graduamos y reparamos bisagras hidráulicas de piso para que la puerta de vidrio cierre suave y vuelva sola a su sitio.',
+    incluye: ['Cambio de bisagra de piso', 'Graduación de velocidad y cierre', 'Marcas Dorma, Speedy, Yale y más'],
+    icono: 'vidrio',
+    urgencia: true,
+    grupo: 'Puertas de vidrio',
+  },
+  {
+    slug: 'cerraduras-puertas-de-vidrio',
+    titulo: 'Cerraduras para puertas de vidrio',
+    texto: 'Instalamos y cambiamos cerraduras de piso, centrales, de zócalo y cerrojos para vidrio, sin perforar donde no se debe.',
+    incluye: ['Chapa de piso y de zócalo', 'Cerrojos y cerraduras centrales', 'Cerraduras digitales para vidrio'],
+    icono: 'chapa',
+    urgencia: true,
+    grupo: 'Puertas de vidrio',
+  },
+  {
+    slug: 'apertura-puertas-de-vidrio',
+    titulo: 'Apertura de puertas de vidrio',
+    texto: 'Abrimos puertas de vidrio de locales, oficinas y conjuntos sin romper el vidrio ni dañar la cerradura, a cualquier hora.',
+    incluye: ['Locales y vitrinas', 'Porterías de conjuntos', 'Cambio de guarda en el momento'],
+    icono: 'puerta',
+    urgencia: true,
+    grupo: 'Puertas de vidrio',
+  },
+  {
+    slug: 'vidrio-roto-o-puerta-forzada',
+    titulo: 'Puerta de vidrio forzada o rota',
+    texto: 'Si forzaron o rompieron la puerta de vidrio de tu negocio, salimos de inmediato a asegurar el acceso y gestionamos el vidrio templado nuevo.',
+    incluye: ['Aseguramiento inmediato', 'Cambio de cerradura y herrajes', 'Vidrio templado a la medida'],
+    icono: 'escudo',
+    urgencia: true,
+    grupo: 'Puertas de vidrio',
+  },
+  {
+    slug: 'brazos-hidraulicos',
+    titulo: 'Brazos hidráulicos y cierrapuertas',
+    texto: 'Instalamos y ajustamos brazos cierrapuertas para que la puerta cierre sola, sin azotar y sin quedarse abierta.',
+    incluye: ['Brazos aéreos', 'Ajuste de fuerza y velocidad', 'Puertas de vidrio, aluminio y madera'],
+    icono: 'herramienta',
+    urgencia: false,
+    grupo: 'Puertas de vidrio',
+  },
+  {
+    slug: 'herrajes-puertas-de-vidrio',
+    titulo: 'Herrajes, zócalos y manijas para vidrio',
+    texto: 'Cambiamos zócalos, pivotes, esquineros, bisagras de vidrio y manijas tipo H en acero inoxidable.',
+    incluye: ['Zócalos superior e inferior', 'Pivotes y esquineros', 'Manijas tipo H y jaladeras'],
+    icono: 'herramienta',
+    urgencia: false,
+    grupo: 'Puertas de vidrio',
+  },
+  {
+    slug: 'puertas-corredizas-de-vidrio',
+    titulo: 'Puertas corredizas de vidrio',
+    texto: 'Arreglamos puertas corredizas que se salen del riel, se traban o no cierran: rodachines, guías, rieles y cerraduras.',
+    incluye: ['Cambio de rodachines', 'Rieles y guías', 'Cerraduras para corrediza'],
+    icono: 'vidrio',
+    urgencia: false,
+    grupo: 'Puertas de vidrio',
+  },
+  {
+    slug: 'electroimanes-y-control-de-acceso',
+    titulo: 'Electroimanes y control de acceso',
+    texto: 'Instalamos electroimanes, botones de salida, lectores de huella y tarjeta en puertas de vidrio de oficinas y edificios.',
+    incluye: ['Electroimanes para vidrio', 'Huella, tarjeta y clave', 'Apertura desde citófono'],
+    icono: 'rayo',
+    urgencia: false,
+    grupo: 'Puertas de vidrio',
+  },
+  {
+    slug: 'mantenimiento-puertas-de-vidrio',
+    titulo: 'Mantenimiento de puertas de vidrio',
+    texto: 'Visitas programadas para locales, oficinas y conjuntos: revisión de bisagras, cerraduras, herrajes y nivelación antes de que fallen.',
+    incluye: ['Planes para conjuntos', 'Centros comerciales y locales', 'Informe de estado'],
+    icono: 'herramienta',
+    urgencia: false,
+    grupo: 'Puertas de vidrio',
+  },
+  {
+    // CONFIRMAR: suministro de puertas nuevas en vidrio templado (con aliado vidriero o propio).
+    slug: 'instalacion-puertas-de-vidrio',
+    titulo: 'Instalación de puertas de vidrio templado',
+    texto: 'Suministramos e instalamos puertas de vidrio templado a la medida, batientes o corredizas, con todos sus herrajes y cerradura.',
+    incluye: ['Vidrio templado de 8 y 10 mm', 'Batientes y corredizas', 'Herrajes en acero inoxidable'],
+    icono: 'vidrio',
+    urgencia: false,
+    grupo: 'Puertas de vidrio',
+  },
+  {
+    slug: 'divisiones-de-bano',
+    titulo: 'Divisiones de baño en vidrio',
+    texto: 'Ajustamos divisiones de baño que se descuadraron, cambiamos rodachines, bisagras, manijas y empaques.',
+    incluye: ['Corredizas y batientes', 'Rodachines y bisagras', 'Manijas y empaques'],
+    icono: 'vidrio',
+    urgencia: false,
+    grupo: 'Puertas de vidrio',
   },
   {
     slug: 'llave-partida',
@@ -169,8 +278,9 @@ export const servicios: Servicio[] = [
 ];
 
 export const serviciosPopulares = servicios.slice(0, 6);
+export const serviciosVidrio = servicios.filter((s) => s.grupo === 'Puertas de vidrio');
 export const serviciosUrgencia = servicios.filter((s) => s.urgencia);
-export const gruposServicio = ['Hogar', 'Vehículos', 'Seguridad', 'Conjuntos y empresas'] as const;
+export const gruposServicio = ['Hogar', 'Puertas de vidrio', 'Vehículos', 'Seguridad', 'Conjuntos y empresas'] as const;
 
 // Página de cada servicio. Llaves de carro y mantenimiento ya tienen su página propia.
 const paginasPropias: Record<string, string> = { 'llaves-de-carro': '/llaves-de-carro', mantenimiento: '/mantenimiento' };

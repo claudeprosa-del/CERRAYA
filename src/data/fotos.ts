@@ -11,3 +11,35 @@ const buscar = (fotos: Record<string, { default: ImageMetadata }>, nombre: strin
 
 export const fotoProducto = (id: string) => buscar(productos, id);
 export const fotoTipo = (slug: string) => buscar(tipos, slug);
+
+// Foto de referencia para la página de cada servicio (/servicios/<slug>).
+const fotoPorServicio: Record<string, string> = {
+  'apertura-de-puertas': 'sobreponer',
+  'cambio-de-guardas': 'cerrojos',
+  'reparacion-puertas-de-vidrio': 'puerta-vidrio',
+  'duplicado-de-llaves': 'cerrojos',
+  'instalacion-de-cerraduras': 'embutir',
+  'cerraduras-digitales': 'digitales',
+  'reparacion-de-cerraduras': 'manija-y-pomo',
+  'bisagras-hidraulicas': 'puerta-vidrio-lobby',
+  'cerraduras-puertas-de-vidrio': 'herraje-vidrio',
+  'apertura-puertas-de-vidrio': 'puerta-vidrio-local',
+  'vidrio-roto-o-puerta-forzada': 'puerta-vidrio-local',
+  'brazos-hidraulicos': 'puerta-vidrio-lobby',
+  'herrajes-puertas-de-vidrio': 'herraje-vidrio',
+  'puertas-corredizas-de-vidrio': 'puerta-vidrio-oficina',
+  'electroimanes-y-control-de-acceso': 'electricas',
+  'mantenimiento-puertas-de-vidrio': 'puerta-vidrio-oficina',
+  'instalacion-puertas-de-vidrio': 'puerta-vidrio',
+  'divisiones-de-bano': 'puerta-vidrio',
+  'llave-partida': 'sobreponer',
+  'apertura-de-vehiculos': 'llave-entrega',
+  'robo-o-forzamiento': 'cerrojos',
+  'cerrojos-de-seguridad': 'cerrojos',
+  'cajas-fuertes': 'cajas-fuertes',
+  'cerraduras-electricas': 'electricas',
+  'llave-maestra': 'cerrojos',
+  'candados-y-rejas': 'candados',
+  'muebles-y-buzones': 'muebles',
+};
+export const fotoServicio = (slug: string) => (fotoPorServicio[slug] ? fotoTipo(fotoPorServicio[slug]) : undefined);

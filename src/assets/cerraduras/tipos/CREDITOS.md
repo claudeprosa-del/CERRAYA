@@ -15,3 +15,10 @@ Fotos de [Unsplash](https://unsplash.com) bajo la [Licencia Unsplash](https://un
 | muebles.jpg | @jakubzerdzicki | https://unsplash.com/photos/a-close-up-of-a-door-handle-on-a-white-door-lsbtg9mJU14 |
 | llave-carro.jpg | @barryalbert24 | https://unsplash.com/photos/a-car-key-with-a-remote-control-attached-to-it-0A_Yx4qwSb8 |
 | llave-entrega.jpg | @yayi1077 | https://unsplash.com/photos/hands-exchanging-a-car-key-against-a-light-background-iDSsOlqFa8w |
+| puerta-vidrio.jpg | Michael Petrila | https://unsplash.com/photos/ifaw-WZL7-Y |
+| puerta-vidrio-local.jpg | Jason Mitrione | https://unsplash.com/photos/l9ig6J4yM94 |
+| herraje-vidrio.jpg | Unsplash | https://unsplash.com/photos/2QL9yFmcKqc |
+| puerta-vidrio-oficina.jpg | Koen Meyssen | https://unsplash.com/photos/UzPvL6gOM7c |
+| puerta-vidrio-lobby.jpg | Sebastian Herrmann | https://unsplash.com/photos/Ax6IJkNFXX4 |
+
+Las fotos de puertas de vidrio se descargaron el 22 de noviembre de 2026 (licencia gratuita de Unsplash, no Unsplash+). Se usan como imágenes de referencia en /puertas-de-vidrio y en las páginas de servicios.

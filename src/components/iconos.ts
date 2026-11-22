@@ -1,5 +1,6 @@
 // Iconos de línea (24×24) usados en todo el sitio.
 export const iconos = {
+  vidrio: '<rect x="5" y="2.5" width="14" height="19" rx="1"/><path d="M8.5 9l4-4M8.5 13.5l7-7M3 21.5h18"/><path d="M15.5 12.5v3"/>',
   puerta: '<path d="M6 21V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17M3 21h18"/><circle cx="14.5" cy="12" r="1"/>',
   llave: '<circle cx="8" cy="15" r="4"/><path d="M11 12l8-8M16 7l2 2M14 9l2 2"/>',
   escudo: '<path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/>',

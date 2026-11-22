@@ -10,7 +10,7 @@ export function negocioLocal(extra: Record<string, unknown> = {}) {
     '@id': `${empresa.sitio}/#negocio`,
     name: 'CERRAYA',
     alternateName: 'Cerraya Cerrajería',
-    description: `${empresa.lema}. Cerrajeros con más de ${empresa.experiencia} años de experiencia: aperturas domiciliarias, cambio de guardas, llaves de carro y venta e instalación de cerraduras.`,
+    description: `${empresa.lema}. Cerrajeros con más de ${empresa.experiencia} años de experiencia: aperturas domiciliarias, cambio de guardas, reparación de puertas de vidrio y bisagras hidráulicas, llaves de carro y venta e instalación de cerraduras.`,
     url: empresa.sitio,
     logo: `${empresa.sitio}/img/logo-cerraya.png`,
     image: `${empresa.sitio}/img/og-cerraya.png`,
@@ -19,6 +19,7 @@ export function negocioLocal(extra: Record<string, unknown> = {}) {
     address: { '@type': 'PostalAddress', addressLocality: 'Bogotá', addressRegion: 'Bogotá D.C.', addressCountry: 'CO' },
     geo: { '@type': 'GeoCoordinates', latitude: 4.6482976, longitude: -74.107807 },
     hasMap: empresa.enlacePerfilGoogle,
+    knowsAbout: ['Cerrajería', 'Puertas de vidrio templado', 'Bisagras hidráulicas', 'Cerraduras digitales', 'Llaves de carro', 'Cajas fuertes', 'Control de acceso'],
     sameAs: [empresa.enlacePerfilGoogle],
     openingHoursSpecification: [
       {

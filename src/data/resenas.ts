@@ -1,0 +1,35 @@
+// Reseñas reales de la ficha CERRAYA en Google Maps (todas de 5 estrellas), copiadas el 22 de noviembre de 2026.
+// Se muestran con el nombre y la inicial del apellido. Solo se corrigieron tildes y ortografía, sin cambiar lo que dijo el cliente.
+// Para actualizar: agrega las nuevas arriba y sube el total en src/data/empresa.ts (resenas.total).
+// No incluir reseñas escritas desde cuentas del propio negocio.
+
+export type Resena = { nombre: string; texto: string; tema?: 'rapidez' | 'precio' | 'apertura' | 'cerraduras' };
+
+export const resenas: Resena[] = [
+  { nombre: 'Sebastián P.', texto: 'Excelente servicio. Salí del apartamento dejando las llaves adentro, llamé y en menos de 30 min habían llegado, y tampoco demoraron abriendo la puerta.', tema: 'apertura' },
+  { nombre: 'John V.', texto: 'Excelente servicio de cerrajería en Bogotá. Fueron rápidos, amables y muy profesionales. Me solucionaron el problema sin complicaciones y a buen precio. ¡Totalmente recomendados!', tema: 'precio' },
+  { nombre: 'Juan M.', texto: 'Excelente servicio, me quedé fuera de mi casa a las 2 am y el servicio sólo demoró media hora, muy efectivo.', tema: 'apertura' },
+  { nombre: 'Marisol N.', texto: 'Servicio excelente, es puntual, profesional y honesto. Trabajo impecable y precio justo. 100% garantizado.', tema: 'precio' },
+  { nombre: 'Laura B.', texto: 'Excelente servicio de cerrajería. Muy buena atención, puntualidad y profesionalismo. Quedé muy satisfecha con el trabajo realizado. ¡Totalmente recomendado!' },
+  { nombre: 'Tania H.', texto: 'Recomendados, buen servicio y la chapa intacta. Gracias.', tema: 'apertura' },
+  { nombre: 'Fabio L.', texto: 'Me cotizaron unas muy buenas cerraduras de seguridad para mi nuevo apartamento, precios accesibles y muy rápido, recomendado.', tema: 'cerraduras' },
+  { nombre: 'Ricardo V.', texto: 'Muy buen servicio, me abrieron la puerta anoche tarde. 💯 Recomendado.', tema: 'apertura' },
+  { nombre: 'María José E.', texto: 'Atención estupenda, el servicio súper rápido, manejan calidad y precio. Súper recomendados.', tema: 'rapidez' },
+  { nombre: 'Karla C.', texto: 'Son muy amables y cumplidos con el servicio. Están siempre disponibles para ayudar. Excelente, muy recomendado.' },
+  { nombre: 'John Alexander C.', texto: 'Excelente servicio, buenos productos y lo mejor, la mano de obra de calidad con garantía sobre los trabajos.', tema: 'cerraduras' },
+  { nombre: 'Jessika P.', texto: 'Me gustó mucho la atención, muy amable, servicio rápido y precio justo.', tema: 'precio' },
+  { nombre: 'Pipe C.', texto: 'Excelente servicio, 100% recomendable. Hoy me abrieron una puerta por Cedritos.', tema: 'apertura' },
+  { nombre: 'Edinson C.', texto: 'Excelente servicio, rápido, muy atentos los señores, me ayudaron mucho en el momento que lo necesité.', tema: 'rapidez' },
+  { nombre: 'Marlon A.', texto: 'Me cotizaron una cerradura inteligente muy buena, quedé bastante satisfecho.', tema: 'cerraduras' },
+  { nombre: 'Liseth V.', texto: 'Muy buen servicio, siempre hay disponibilidad, y hacen el trabajo muy rápido.', tema: 'rapidez' },
+  { nombre: 'Gloria H.', texto: 'Excelente servicio, responsabilidad y compromiso. Y buen precio.', tema: 'precio' },
+  { nombre: 'Yuledy V.', texto: 'Me dieron muy buena atención y me prestaron el servicio de cerrajería que necesitaba en el tiempo más rápido posible.', tema: 'rapidez' },
+  { nombre: 'Leyner T.', texto: 'Excelente servicio, llegan súper rápido. Hacen el trabajo en un tiempo considerable.', tema: 'rapidez' },
+  { nombre: "D'onoban A.", texto: 'Excelente servicio, atención rápida y buenos precios.', tema: 'precio' },
+  { nombre: 'Sebastián S.', texto: 'Excelente servicio, buena atención y trabajo garantizado. 😊' },
+  { nombre: 'Felipe H.', texto: 'Excelente servicio, muy profesional en la labor.' },
+  { nombre: 'Thony', texto: 'Muy buen precio, buena atención.', tema: 'precio' },
+  { nombre: 'Ney A.', texto: 'Muy cumplidos, me gustó mucho, los recomiendo.' },
+  { nombre: 'Alicia J.', texto: 'Muy buena atención. Encontré todo lo que necesitaba.', tema: 'cerraduras' },
+  { nombre: 'Mr Fred', texto: 'Lo mejor de lo mejor... Recomendado al 100.' },
+];

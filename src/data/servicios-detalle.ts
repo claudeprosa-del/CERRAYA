@@ -24,6 +24,104 @@ export const detalleServicios: Record<string, DetalleServicio> = {
       { p: '¿Cuánto se demora?', r: 'Un cambio de guardas suele tomar menos de una hora en sitio.' },
     ],
   },
+  'reparacion-puertas-de-vidrio': {
+    tituloSeo: 'Reparación de puertas de vidrio en Bogotá',
+    intro: 'Somos especialistas en puertas de vidrio templado: las que golpean al cerrar, arrastran en el piso, se descolgaron, quedaron desniveladas o ya no aseguran. Revisamos bisagras hidráulicas, cerraduras, zócalos y herrajes, y la dejamos funcionando en la misma visita siempre que el repuesto lo permita. Atendemos locales, oficinas, edificios, conjuntos y casas en toda Bogotá, también de noche y en festivos.',
+    faq: [
+      { p: '¿Por qué mi puerta de vidrio golpea o se cierra muy duro?', r: 'Casi siempre es la bisagra hidráulica de piso o el brazo cierrapuertas desgraduado o sin aceite. Se gradúa o se cambia y la puerta vuelve a cerrar suave.' },
+      { p: '¿Arreglan una puerta de vidrio descolgada?', r: 'Sí. Revisamos el pivote superior, el zócalo y la bisagra de piso, nivelamos la hoja y cambiamos la pieza que falló.' },
+      { p: '¿Atienden locales comerciales de noche?', r: 'Sí. Si tu local no puede cerrar, salimos de inmediato a cualquier hora para que no quede abierto.' },
+    ],
+  },
+  'bisagras-hidraulicas': {
+    tituloSeo: 'Bisagras hidráulicas de piso en Bogotá: cambio y reparación',
+    intro: 'La bisagra hidráulica de piso (freno de piso) es el corazón de una puerta de vidrio: controla la velocidad, el cierre y que la hoja vuelva a su sitio. Cuando bota aceite, se queda abierta o azota la puerta, la graduamos o la cambiamos por una nueva de marcas como Dorma, Speedy o Yale, con la caja de cemento y la tapa en acero inoxidable.',
+    faq: [
+      { p: '¿Cómo sé si hay que cambiar la bisagra hidráulica?', r: 'Si bota aceite, la puerta no regresa al centro o cierra de golpe aunque la gradúes, la bisagra ya está vencida y conviene cambiarla.' },
+      { p: '¿Hay que romper el piso para cambiarla?', r: 'Normalmente no: la bisagra nueva va en la misma caja. Solo si la caja está dañada o es de otra medida hay que adecuarla.' },
+      { p: '¿Cuánto dura una bisagra hidráulica?', r: 'Con buen uso y mantenimiento, varios años. En locales de mucho tráfico conviene revisarla cada seis meses.' },
+    ],
+  },
+  'cerraduras-puertas-de-vidrio': {
+    tituloSeo: 'Cerraduras para puertas de vidrio en Bogotá',
+    intro: 'Instalamos y cambiamos cerraduras para vidrio templado: chapas de piso, de zócalo, cerraduras centrales para doble hoja, cerrojos con contracerradura y cerraduras digitales para vidrio. El vidrio templado no se puede perforar después de fabricado, por eso elegimos la cerradura que se adapta a tu puerta sin poner en riesgo el vidrio.',
+    faq: [
+      { p: '¿Se puede poner cualquier cerradura en una puerta de vidrio?', r: 'No. El vidrio templado no se perfora en obra, así que se usan cerraduras de pinza o de zócalo que se ajustan al vidrio, o las perforaciones que ya tiene.' },
+      { p: '¿Hay cerraduras digitales para puertas de vidrio?', r: 'Sí, con huella, tarjeta o clave, que se instalan sin perforar el vidrio. Te recomendamos el modelo según tu puerta.' },
+    ],
+  },
+  'apertura-puertas-de-vidrio': {
+    tituloSeo: 'Apertura de puertas de vidrio en Bogotá 24/7',
+    intro: 'Si la cerradura de la puerta de vidrio de tu local, oficina o portería no abre, o perdiste la llave, hacemos la apertura sin romper el vidrio ni dañar la cerradura. Si hace falta, cambiamos la guarda en el momento para que vuelvas a abrir y cerrar con tranquilidad.',
+    faq: [
+      { p: '¿Rompen el vidrio para abrir?', r: 'No. Trabajamos sobre la cerradura. Romper un vidrio templado es lo último que se haría y nunca sin tu autorización.' },
+      { p: '¿Qué piden para abrir un local?', r: 'Un documento que demuestre que eres el dueño, el arrendatario o el encargado del local.' },
+    ],
+  },
+  'vidrio-roto-o-puerta-forzada': {
+    tituloSeo: 'Puerta de vidrio forzada o rota en Bogotá: atención urgente',
+    intro: 'Si forzaron o rompieron la puerta de vidrio de tu negocio, salimos de inmediato a asegurar el acceso para que no quede abierto: cambiamos cerradura y herrajes dañados y, si el vidrio se rompió, tomamos medidas y gestionamos el vidrio templado nuevo a la medida.',
+    faq: [
+      { p: '¿Qué hago primero si forzaron mi local?', r: 'Llama a la Policía (123) y no toques nada hasta que hagan el registro. Después llámanos para asegurar la puerta esa misma noche.' },
+      { p: '¿Cuánto se demora un vidrio templado nuevo?', r: 'El vidrio templado se fabrica a la medida y toma unos días. Mientras tanto aseguramos el acceso para que el local no quede expuesto.' },
+    ],
+  },
+  'brazos-hidraulicos': {
+    tituloSeo: 'Brazos hidráulicos y cierrapuertas en Bogotá',
+    intro: 'Instalamos, cambiamos y graduamos brazos cierrapuertas aéreos para puertas de vidrio, aluminio, madera y metálicas. Una puerta que azota o se queda abierta gasta el marco, las bisagras y la cerradura; con el brazo bien graduado cierra sola y sin golpe.',
+    faq: [
+      { p: '¿Brazo aéreo o bisagra de piso?', r: 'En vidrio templado sin marco se usa bisagra de piso; en puertas con marco, el brazo aéreo es más económico y fácil de mantener.' },
+      { p: '¿Se puede graduar el brazo?', r: 'Sí. Tiene válvulas para la velocidad y el golpe final. Si bota aceite, ya hay que cambiarlo.' },
+    ],
+  },
+  'herrajes-puertas-de-vidrio': {
+    tituloSeo: 'Herrajes para puertas de vidrio en Bogotá: zócalos, pivotes y manijas',
+    intro: 'Cambiamos los herrajes que sostienen y mueven la puerta de vidrio: zócalos superior e inferior, pivotes, esquineros, bisagras vidrio-pared y vidrio-vidrio, contracerraduras y manijas tipo H o jaladeras en acero inoxidable. Un herraje flojo es la causa más común de una puerta descolgada.',
+    faq: [
+      { p: '¿Por qué se suelta la manija de la puerta de vidrio?', r: 'Por el uso diario los tornillos se aflojan y el empaque se gasta. Se ajusta con empaques nuevos o se cambia la manija si está doblada.' },
+      { p: '¿Tienen herrajes en acero inoxidable?', r: 'Sí, en acabado satinado y brillante, que no se oxidan.' },
+    ],
+  },
+  'puertas-corredizas-de-vidrio': {
+    tituloSeo: 'Reparación de puertas corredizas de vidrio en Bogotá',
+    intro: 'Arreglamos puertas corredizas de vidrio y aluminio que se salen del riel, se traban, suenan o no cierran: cambiamos rodachines, guías y rieles, ajustamos la hoja y ponemos una cerradura que de verdad asegure la puerta.',
+    faq: [
+      { p: '¿Por qué la puerta corrediza se pone dura?', r: 'Por rodachines gastados o rotos y suciedad en el riel. Con rodachines nuevos y el riel limpio vuelve a correr suave.' },
+      { p: '¿Se le puede poner cerradura de seguridad a una corrediza?', r: 'Sí, cerraduras de gancho y pasadores que impiden levantar la hoja desde afuera.' },
+    ],
+  },
+  'electroimanes-y-control-de-acceso': {
+    tituloSeo: 'Electroimanes y control de acceso para puertas de vidrio en Bogotá',
+    intro: 'Instalamos electroimanes para puertas de vidrio con apertura por huella, tarjeta, clave, botón de salida o citófono. Es la solución típica de oficinas, consultorios, porterías y locales que necesitan controlar quién entra sin entregar llaves.',
+    faq: [
+      { p: '¿Qué pasa con el electroimán si se va la luz?', r: 'El electroimán se libera sin energía por seguridad. Se puede instalar una batería de respaldo para que siga cerrado durante el corte.' },
+      { p: '¿Sirve en puertas de vidrio sin marco?', r: 'Sí, con soportes especiales en L o U que se ajustan al vidrio.' },
+    ],
+  },
+  'mantenimiento-puertas-de-vidrio': {
+    tituloSeo: 'Mantenimiento de puertas de vidrio en Bogotá',
+    intro: 'Programamos visitas de mantenimiento para las puertas de vidrio de locales, oficinas, centros comerciales y conjuntos: revisamos y graduamos bisagras hidráulicas, ajustamos herrajes y cerraduras, nivelamos las hojas y te entregamos un informe de estado. Es mucho más barato prevenir que cambiar una bisagra o un vidrio.',
+    faq: [
+      { p: '¿Cada cuánto se hace?', r: 'En locales y porterías de mucho tráfico, cada tres a seis meses. En casas, una vez al año.' },
+      { p: '¿Tienen planes para conjuntos?', r: 'Sí, con visitas programadas para porterías, salones comunales y puertas de torres.' },
+    ],
+  },
+  'instalacion-puertas-de-vidrio': {
+    tituloSeo: 'Puertas de vidrio templado en Bogotá: suministro e instalación',
+    intro: 'Suministramos e instalamos puertas de vidrio templado a la medida para locales, oficinas, porterías y casas: batientes con bisagra de piso o corredizas, en vidrio de 8 o 10 mm, con herrajes en acero inoxidable y la cerradura adecuada desde el principio.',
+    faq: [
+      { p: '¿Qué espesor de vidrio se usa?', r: 'Para puertas, 10 mm es lo más común; 8 mm sirve en puertas interiores livianas.' },
+      { p: '¿Cuánto se demora?', r: 'Después de la medida, el vidrio templado se fabrica en pocos días y la instalación se hace en una visita.' },
+    ],
+  },
+  'divisiones-de-bano': {
+    tituloSeo: 'Arreglo de divisiones de baño en vidrio en Bogotá',
+    intro: 'Ajustamos divisiones de baño en vidrio que se descuadraron, no cierran o se salen del riel. Cambiamos rodachines, bisagras, manijas, guías y empaques para que la división vuelva a cerrar bien y deje de filtrar agua.',
+    faq: [
+      { p: '¿Por qué la división del baño se sale del riel?', r: 'Casi siempre por rodachines gastados o rotos. Se cambian y la puerta vuelve a correr.' },
+      { p: '¿Cambian el empaque que bota agua?', r: 'Sí, cambiamos empaques y barrederas para que el agua no salga de la ducha.' },
+    ],
+  },
   'duplicado-de-llaves': {
     tituloSeo: 'Copias de llaves en Bogotá',
     intro: 'Duplicamos llaves de casa, oficina, candados, cerrojos y buzones, incluidas llaves de puntos y de seguridad. Si necesitas varias copias para tu familia, tu conjunto o tu empresa, te las cotizamos por cantidad.',
